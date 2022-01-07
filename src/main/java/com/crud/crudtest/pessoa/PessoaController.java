@@ -13,13 +13,13 @@ public class PessoaController {
     @Autowired
     private PessoaService pessoaService;
 
-    @PostMapping("/")
+    @PostMapping
     public void salvar (@RequestBody Pessoa pessoa){
         this.pessoaService.salvar(pessoa);
     }
 
-    @PutMapping("/")
-    public Pessoa editar(@RequestBody Pessoa pessoa){
+    @PutMapping("/{id}")
+    public Pessoa editar(@PathVariable Long id, @RequestBody Pessoa pessoa){
         return this.pessoaService.editar(pessoa);
     }
 

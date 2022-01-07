@@ -1,5 +1,6 @@
 package com.crud.crudtest.pessoa;
 
+import com.crud.crudtest.exceptions.EntidadeException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class PessoaService {
     }
 
     public void deletar(Long id){
+        verificar(id);
         log.info("Deletando pessoa de ID {}", id);
         this.pessoaRepository.deleteById(id);
     }
@@ -40,5 +42,11 @@ public class PessoaService {
         return this.pessoaRepository.findAll();
     }
 
+    protected void verificar(Long id) {
+        if (pessoaRepository.findById(id).isEmpty()) {
+            log.error("Não foi encontrada a entidade com o ID: " + id);
+            throw new EntidadeException("Não foi encontrada a entidade");
+        }
+    }
 
 }
