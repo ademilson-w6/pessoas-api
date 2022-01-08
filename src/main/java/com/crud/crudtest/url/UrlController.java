@@ -1,6 +1,5 @@
-package com.crud.crudtest.pessoa;
+package com.crud.crudtest.url;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/source")
-public class CodigoController {
+public class UrlController {
 
     @GetMapping
     public String retornarLink(){
