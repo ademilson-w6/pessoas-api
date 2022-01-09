@@ -2,17 +2,15 @@ package com.crud.crudtest.pessoa;
 
 
 import com.crud.crudtest.pet.Pet;
-import com.crud.crudtest.sexo.Sexo;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
-
-import static java.lang.Double.compare;
 
 @Entity
 @Data
@@ -23,13 +21,13 @@ public class Pessoa {
     @GeneratedValue
     private Long id;
     private String nome;
+
+    @CPF
     private String cpf;
     private double saldo;
 
     @OneToMany
     private List<Pet> pet;
-
-
 
 
 }
