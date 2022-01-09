@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bdpessoas
+    username: postgres
+    password: postgres
+
+    jpa:
+      hibernate.ddl-auto: create
+
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+
+
+
