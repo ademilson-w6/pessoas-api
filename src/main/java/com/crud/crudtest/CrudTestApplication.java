@@ -1,13 +1,7 @@
 package com.crud.crudtest;
 
-import com.crud.crudtest.pessoa.Pessoa;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.*;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class CrudTestApplication {

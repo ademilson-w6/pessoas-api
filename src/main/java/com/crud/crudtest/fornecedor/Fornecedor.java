@@ -1,7 +1,7 @@
-package com.crud.crudtest.pessoa;
+package com.crud.crudtest.fornecedor;
 
 
-import com.crud.crudtest.pet.Pet;
+import com.crud.crudtest.produto.Produto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Data
 @RequiredArgsConstructor
-public class Pessoa {
+public class Fornecedor {
 
     @Id
     @GeneratedValue
@@ -27,7 +27,7 @@ public class Pessoa {
     private double saldo;
 
     @OneToMany
-    private List<Pet> pet;
+    private List<Produto> produto;
 
 
 }

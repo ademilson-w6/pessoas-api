@@ -1,6 +1,6 @@
-package com.crud.crudtest.pet;
+package com.crud.crudtest.produto;
 
-import com.crud.crudtest.pessoa.Pessoa;
+import com.crud.crudtest.fornecedor.Fornecedor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @RequiredArgsConstructor
-public class Pet {
+public class Produto {
 
     @Id
     @GeneratedValue
@@ -28,7 +28,7 @@ public class Pet {
     private String foto;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Pessoa dono;
+    private Fornecedor dono;
 
 
 }
