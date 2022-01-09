@@ -31,4 +31,13 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
         log.error("Erro de validação encontrado: {}", message);
         return handleExceptionInternal(ex, ErrorResponse.builder().message(message).build(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+
+    @ExceptionHandler(value = {Exception.class})
+    protected ResponseEntity<Object> erroGenerico(
+            Exception ex, WebRequest request) {
+        log.error("Erro genérico encontrado: {}", ex.getMessage());
+        return handleExceptionInternal(ex, ErrorResponse.builder().message("Ocorreu um erro interno").build(), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+
 }
