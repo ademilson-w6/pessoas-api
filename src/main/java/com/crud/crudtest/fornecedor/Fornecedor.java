@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -26,8 +23,9 @@ public class Fornecedor {
     private String cpf;
     private double saldo;
 
-    @OneToMany
-    private List<Produto> produto;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "fornecedor")
+    private List<Produto> produtos;
+
 
 
 }

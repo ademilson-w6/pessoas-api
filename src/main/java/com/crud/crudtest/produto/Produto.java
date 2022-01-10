@@ -14,21 +14,17 @@ public class Produto {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private String raca;
-    private String idade;
-    private String peso;
-    private String sexo;
-    private String porte;
-    private String cor;
+    private String nome;
+    private double preco;
+    private String vencimento;
 
     @Column(name = "descricao", columnDefinition = "TEXT")
     private String descricao;
-
     private String foto;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Fornecedor dono;
+    @ManyToOne
+    @JoinColumn(name = "fornecedor_id")
+    private Fornecedor fornecedor;
 
 
 }
