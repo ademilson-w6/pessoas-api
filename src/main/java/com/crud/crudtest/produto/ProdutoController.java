@@ -1,6 +1,7 @@
 package com.crud.crudtest.produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,11 @@ public class ProdutoController {
     @GetMapping
     public List<Produto> listar() {
         return this.produtoService.listar();
+    }
+
+    @GetMapping("/teste")
+    public String pesquisarPorNome(Long id) {
+        return produtoService.retornarResult(id);
     }
 
 

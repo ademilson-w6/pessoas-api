@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +42,23 @@ public class ProdutoService {
     public List<Produto> listar() {
         log.info("Listando todos os produtos");
         return this.produtoRepository.findAll();
+    }
+
+    public String retornarResult(Long id) {
+
+
+        if(id != null) {
+            return "Produto encontrado com sucesso DIF";
+        }
+
+
+        if(Optional.ofNullable(id).isPresent()) {
+            return "Produto encontrado com sucesso PRESENT";
+        }
+
+
+
+        return "null";
     }
 
 
